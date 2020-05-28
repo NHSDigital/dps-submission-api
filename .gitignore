@@ -1,3 +1,4 @@
+.idea/
 node_modules/
 bin/
 dist/
@@ -9,3 +10,4 @@ newman/
 
 __pycache__/
 .envrc
+*.orig

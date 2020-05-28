@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="upstream">
+  <FaultRules>
+    <FaultRule name="no_api_key">
+        <Step>
+          <Name>AssignMessage.NoApiKeyErrorResponse</Name>
+        </Step>
+        <Step>
+          <Name>AssignMessage.AddCors</Name>
+        </Step>
+        <Condition>fault.name Matches "FailedToResolveAPIKey"</Condition>
+      </FaultRule>
+      <FaultRule name="invalid_api_key">
+        <Step>
+          <Name>ExtractVariables.VerifyApiKeyFaultString</Name>
+        </Step>
+        <Step>
+          <Name>AssignMessage.BadApiKeyErrorResponse</Name>
+        </Step>
+        <Step>
+          <Name>AssignMessage.AddCors</Name>
+        </Step>
+        <Condition>(oauthV2.VerifyApiKey.FromHeader.failed)</Condition>
+      </FaultRule>
+    </FaultRules>
+    <PreFlow>
+        <Request>
+          <Step>
+            <Name>VerifyApiKey.FromHeader</Name>
+          </Step>
+          <Step>
+            <Name>AssignMessage.RemoveApiKeyHeader</Name>
+          </Step>
+        </Request>
+        <Response>
+          <Step>
+            <Name>AssignMessage.AddCors</Name>
+          </Step>
+        </Response>
+    </PreFlow>
+    <HTTPTargetConnection>
+      <LoadBalancer>
+        <Server name="covid-19-testing-channel-availability"/>
+      </LoadBalancer>
+    </HTTPTargetConnection>
+</TargetEndpoint>

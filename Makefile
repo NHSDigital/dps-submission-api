@@ -19,11 +19,10 @@ install-fhir-validator:
 test:
 	npm run test
 
-lint:
-	npm run lint
-	cd sandbox && npm run lint && cd ..
-	poetry run flake8 **/*.py
-	find -name '*.sh' | grep -v node_modules | xargs shellcheck
+#lint:
+	#npm run lint
+	#poetry run flake8 **/*.py
+	#find -name '*.sh' | grep -v node_modules | xargs shellcheck
 
 validate: generate-examples
 	java -jar bin/org.hl7.fhir.validator.jar build/examples/**/*application_fhir+json*.json -version 4.0.1 -tx n/a | tee /tmp/validation.txt

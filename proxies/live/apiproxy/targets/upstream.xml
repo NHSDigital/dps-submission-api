@@ -31,6 +31,12 @@
           <Step>
             <Name>AssignMessage.RemoveApiKeyHeader</Name>
           </Step>
+          <Step>
+            <Name>KeyValueMap.GetUpstreamApiKey</Name>
+          </Step>
+          <Step>
+            <Name>AssignMessage.AddUpstreamApiKeyHeader</Name>
+          </Step>
         </Request>
         <Response>
           <Step>
@@ -40,7 +46,7 @@
     </PreFlow>
     <HTTPTargetConnection>
       <LoadBalancer>
-        <Server name="covid-19-testing-channel-availability"/>
+        <Server name="dps-submission-api"/>
       </LoadBalancer>
     </HTTPTargetConnection>
 </TargetEndpoint>

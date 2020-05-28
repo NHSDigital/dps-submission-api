@@ -1,0 +1,4 @@
+<VerifyAPIKey async="false" continueOnError="false" enabled="true" name="VerifyApiKey.FromHeader">
+    <Properties/>
+    <APIKey ref="request.header.X-API-Key"/>
+</VerifyAPIKey>

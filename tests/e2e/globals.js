@@ -1,15 +1,12 @@
-doc = `
-API Management Postman Test Runner
-Usage:
-  test-runner.js <apigee_environment> <base_url> <apikey>
-  test-runner.js -h | --help
-  -h --help  Show this text.
-`
+const fs = require('fs');
+const process = require('process');
 
-const fs = require('fs')
-const docopt = require('docopt').docopt
+function writeEnvAndGlobals() {
+  const apigeeEnv = process.env.APIGEE_ENVIRONMENT;
+  const serviceBaseUrl = process.env.SERVICE_BASE_PATH;
+  const apikey = process.env.API_KEY;
+  const baseUrl = `https://${apigeeEnv}.api.service.nhs.uk/${serviceBaseUrl}`
 
-function writeEnvAndGlobals(apigeeEnv, baseUrl, apikey) {
   writeGlobals(apikey);
   writeEnvVariables(baseUrl, apigeeEnv)
 }
@@ -47,13 +44,8 @@ function writeEnvVariables(baseUrl, apigeeEnv){
   fs.writeFileSync(`e2e/environments/deploy.${apigeeEnv}.postman.json`, JSON.stringify(envVariables));
 }
 
-function main(args) {
-  writeEnvAndGlobals(
-    args['<apigee_environment>'],
-    args['<base_url>'],
-    args['<apikey>']
-  )
+function main() {
+  writeEnvAndGlobals();
 }
 
-args = docopt(doc)
-main(args)
+main()

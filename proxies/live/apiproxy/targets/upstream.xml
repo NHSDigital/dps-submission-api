@@ -32,6 +32,12 @@
             <Name>AssignMessage.RemoveApiKeyHeader</Name>
           </Step>
           <Step>
+            <Name>ExtractVariables.DatasetId</Name>
+          </Step>
+          <Step>
+            <Name>AssignMessage.AddDatasetIdHeader</Name>
+          </Step>
+          <Step>
             <Name>KeyValueMap.GetUpstreamApiKey</Name>
           </Step>
           <Step>
@@ -48,5 +54,6 @@
       <LoadBalancer>
         <Server name="dps-submission-api"/>
       </LoadBalancer>
+      <Path>/ingest/dps</Path>
     </HTTPTargetConnection>
 </TargetEndpoint>

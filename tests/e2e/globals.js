@@ -1,7 +1,7 @@
 doc = `
 API Management Postman Test Runner
 Usage:
-  test-runner.js <apigee_environment> <apikey>
+  test-runner.js <apigee_environment> <base_url> <apikey>
   test-runner.js -h | --help
   -h --help  Show this text.
 `
@@ -9,7 +9,7 @@ Usage:
 const fs = require('fs')
 const docopt = require('docopt').docopt
 
-function writeEnvAndGlobals(apikey, baseUrl, apigeeEnv) {
+function writeEnvAndGlobals(apigeeEnv, baseUrl, apikey) {
   writeGlobals(apikey);
   writeEnvVariables(baseUrl, apigeeEnv)
 }

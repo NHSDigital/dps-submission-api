@@ -9,13 +9,13 @@ build:
 	cp -r ./apiproxy ./dist
 
 deploy: build
-	cd ./dist && apigeetool deployproxy -V -o nhsd-nonprod -e internal-dev -n covid-19-testing-channel-availability -t $$(get_token)
+	cd ./dist && apigeetool deployproxy -V -o nhsd-nonprod -e internal-dev -n dps-submission-api -t $$(get_token)
 
 undeploy:
-	apigeetool undeploy -V -o nhsd-nonprod -e internal-dev -n covid-19-testing-channel-availability -t $$(get_token)
+	apigeetool undeploy -V -o nhsd-nonprod -e internal-dev -n dps-submission-api  -t $$(get_token)
 
 delete:
-	apigeetool delete -V -o nhsd-nonprod -n covid-19-testing-channel-availability -t $$(get_token)
+	apigeetool delete -V -o nhsd-nonprod -n dps-submission-api  -t $$(get_token)
 
 install:
 	npm install --dev

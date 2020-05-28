@@ -46,7 +46,7 @@
     </PreFlow>
     <HTTPTargetConnection>
       <LoadBalancer>
-        <Server name="covid-19-testing-channel-availability"/>
+        <Server name="dps-submission-api"/>
       </LoadBalancer>
     </HTTPTargetConnection>
 </TargetEndpoint>

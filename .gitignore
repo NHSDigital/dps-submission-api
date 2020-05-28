@@ -11,3 +11,29 @@ newman/
 __pycache__/
 .envrc
 *.orig
+
+# terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.plan
+
+# certs/keys/pems
+*.crt
+*.csr
+*.key
+*.pem
+*.pfx
+*.srl*
+*.csr.cfg
+*id_rsa*
+
+
+# Big binaries
+*.bz2
+*.gz
+*.jar
+*.tar.gz
+*.tgz
+*.zip

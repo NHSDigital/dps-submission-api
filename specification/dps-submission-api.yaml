@@ -5,34 +5,31 @@ openapi: "3.0.0"
 
 info:
   version: "0.0.1"
-  title: Hello World API
+  title: DPS Submission Api
   description: |
     ## Overview
-    Use this API alongside our [tutorials](https://digital.nhs.uk/developer/api-tutorials) to learn how to connect to our APIs.
+    Use this API to submit data to DPS.
 
     ## Endpoints
     To see details for specific endpoints, select from the list on the left hand side of the page:
-    - `GET /hello/world` - an example of an open-access endpoint
-    - `GET /hello/application` - an example of an application-restricted endpoint
-    - `GET /hello/user` - an example of a user-restricted endpoint
+    - `POST /dps-submission-api`
   contact:
     name: API Management Support
     email: api.management@nhs.net
 
 servers:
-  - url: 'https://sandbox.api.service.nhs.uk/hello-world'
+  - url: 'https://internal-dev.api.service.nhs.uk/dps-submission-api/'
     description: Sandbox environment.
 
 paths:
 
-  /hello/world:
-    get:
-      summary: Say hello world.
-      operationId: getHello
+  /dps-submission-api/:
+    post:
+      summary: Submit data and return 200 status to prove that it worked.
+      operationId: submitDataToPDS
       description: |
-        Get a "Hello world!" response from an open-access endpoint.
+        Get a 200 response from an application restriced endpoint.
 
-        Use this API alongside our [open-access REST API tutorial](https://digital.nhs.uk/developer/api-tutorials#open-access-rest-api-tutorial) to learn how to connect to our APIs.
       responses:
         '200':
           description: Successful response.
@@ -42,12 +39,10 @@ paths:
                 type: object
                 properties:
                   message:
-                    type: string
-                    example: "Hello world!"
-              example:
-                message: "Hello world!"
+                    type: object
+                    example: "{}"
       tags:
-        - hello
+        - dps
 components:
 
   securitySchemes:
@@ -55,14 +50,3 @@ components:
       type: apiKey
       name: apikey
       in: header
-
-    oAuth2AuthCode:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: https://sandbox.api.service.nhs.uk/oauth2/authorize
-          tokenUrl: https://sandbox.api.service.nhs.uk/oauth2/token
-          scopes: {}
-
-tags:
-  - name: hello

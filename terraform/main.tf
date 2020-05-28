@@ -19,7 +19,7 @@ module "dps_api" {
   apigee_environment = var.apigee_environment
   proxy_type         = "live"
   namespace          = var.namespace
-  make_api_product         = 0
+  make_api_product         = false
   api_product_display_name = "DPS Submission API"
   api_product_description  = ""
 }

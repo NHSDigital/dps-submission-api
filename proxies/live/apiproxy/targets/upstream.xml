@@ -29,6 +29,10 @@
             <Name>VerifyApiKey.FromHeader</Name>
           </Step>
           <Step>
+            <Name>RaiseFault.MethodNotAllowed</Name>
+            <Condition>request.verb != "POST"</Condition>
+          </Step>
+          <Step>
             <Name>AssignMessage.RemoveApiKeyHeader</Name>
           </Step>
           <Step>

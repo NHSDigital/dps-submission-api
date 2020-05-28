@@ -82,4 +82,4 @@ jobs:
         displayName: Build Release Package
 
       - publish: dist/
-        artifact: covid-19-testing-channel-availability-$(SPEC_VERSION)+$(Build.BuildNumber)
+        artifact: dps-submission-api-$(SPEC_VERSION)+$(Build.BuildNumber)

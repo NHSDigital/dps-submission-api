@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "f4afc6db-179d-45e9-96d7-936500fc2a9a",
+		"name": "dps-submission-api-live",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Valid apikey",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "52c77043-4102-44b1-8839-0952a016a295",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Missing API Key\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "Too5BdPayTQACdw1AJK1rD4nKUD0Ag7J",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "x-api-key",
+							"value": " Too5BdPayTQACdw1AJK1rD4nKUD0Ag7J",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

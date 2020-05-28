@@ -39,3 +39,4 @@ __pycache__/
 *.tar.gz
 *.tgz
 *.zip
+.gitignore

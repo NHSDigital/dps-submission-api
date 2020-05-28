@@ -43,6 +43,9 @@
           <Step>
             <Name>AssignMessage.AddUpstreamApiKeyHeader</Name>
           </Step>
+          <Step>
+            <Name>AssignMessage.DoNotCopyPathSuffix</Name>
+          </Step>
         </Request>
         <Response>
           <Step>

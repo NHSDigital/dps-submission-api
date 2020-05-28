@@ -6,6 +6,8 @@ build/
 public/
 newman/
 
+venv
+
 .#*
 
 __pycache__/

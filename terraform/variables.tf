@@ -15,7 +15,7 @@ variable "apigee_token" {
 
 variable "namespace" {
   type = string
-  description = "Namespace to deploy proxies etc. in to, for canaries or deploys. To make it prettier, start with a hyphen (e.g. '-apm-123')."
+  description = "Namespace to deploy proxies etc. in to, for canaries or deploys. To make it prettier, start with a hyphen (e.g. '-amb-123')."
   default = ""
 }
 

@@ -5,8 +5,8 @@
   "scripts": {
     "lint": "node_modules/.bin/speccy lint specification/dps-submission-api.yaml --skip default-and-example-are-redundant",
     "test": "node_modules/.bin/newman run tests/e2e/dps-submission-api-live.json -e $API_TEST_ENV_FILE_PATH --reporters html,cli,htmlextra --reporter-htmlextra-logs --reporter-htmlextra-darkTheme",
-    "publish": "mkdir -p build && node_modules/.bin/speccy resolve specification/dps-submission-api.yaml -i | poetry run python scripts/yaml2json.py | poetry run python scripts/set_version.py > build/template-api.json",
-    "serve": "node_modules/.bin/speccy serve build/template-api.json",
+    "publish": "mkdir -p build && node_modules/.bin/speccy resolve specification/dps-submission-api.yaml -i | poetry run python scripts/yaml2json.py | poetry run python scripts/set_version.py > build/dps-submission-api.json",
+    "serve": "node_modules/.bin/speccy serve build/dps-submission-api.json",
     "check-licenses": "node_modules/.bin/license-checker --failOn GPL --failOn LGPL"
   },
   "author": "NHS Digital",

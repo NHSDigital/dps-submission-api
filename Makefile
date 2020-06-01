@@ -1,6 +1,6 @@
 SHELL=/bin/bash -euo pipefail
 
-install: install-node install-python install-fhir-validator install-hooks
+install: install-node install-python install-hooks
 
 install-python:
 	poetry install
@@ -40,11 +40,11 @@ serve: update-examples
 
 generate-examples: publish clean
 	mkdir -p build/examples
-	poetry run python scripts/generate_examples.py build/template-api.json build/examples
+	poetry run python scripts/generate_examples.py build/dps-submission-api.json build/examples
 
 update-examples: generate-examples
 	#TODO copy and standardise examples e.g.:
-	jq -rM . <build/examples/resources/Patient.json >specification/components/examples/Patient.json
+	jq -rM . <build/examples/resources/Greeting.json >specification/components/examples/ErrorCode.json
 	make publish
 
 check-licenses:

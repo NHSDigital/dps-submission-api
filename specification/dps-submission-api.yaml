@@ -50,3 +50,6 @@ components:
       type: apiKey
       name: apikey
       in: header
+  schemas:
+    Greeting:
+      $ref: components/schemas/ErrorCode.yaml

@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Valid apikey",
+			"name": "Missing apikey",
 			"event": [
 				{
 					"listen": "test",
@@ -15,6 +15,9 @@
 						"exec": [
 							"pm.test(\"Body matches string\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"Missing API Key\");",
+							"});",
+							"pm.test(\"Status code\", function () {",
+							"    pm.response.to.have.status(401);",
 							"});"
 						],
 						"type": "text/javascript"
@@ -26,7 +29,7 @@
 				"header": [
 					{
 						"key": "X-API-Key",
-						"value": "Too5BdPayTQACdw1AJK1rD4nKUD0Ag7J",
+						"value": "{{X-API-Key}}",
 						"type": "text",
 						"disabled": true
 					}
@@ -49,6 +52,163 @@
 							"value": " Too5BdPayTQACdw1AJK1rD4nKUD0Ag7J",
 							"disabled": true
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET not allowed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8f485103-e1e8-4cb9-8aa2-c4c9e7534bdf",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"MethodNotAllowed\");",
+							"});",
+							"pm.test(\"Status code\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "{{X-API-Key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}",
+					"host": [
+						"{{base_url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid API Key",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a3bfe259-9c6a-4c2f-928d-23a5512b0774",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Invalid ApiKey\");",
+							"});",
+							"pm.test(\"Status code\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "invalid api key",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT not allowed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9258eb04-d965-494e-9a39-ea27abca64ae",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"MethodNotAllowed\");",
+							"});",
+							"pm.test(\"Status code\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "{{X-API-Key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE not allowed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a9b92688-7604-47aa-a3f3-6ed11c8e5d4c",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"MethodNotAllowed\");",
+							"});",
+							"pm.test(\"Status code\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "{{X-API-Key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						""
 					]
 				}
 			},

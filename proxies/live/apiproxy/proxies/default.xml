@@ -9,6 +9,14 @@
         </Response>
         <Condition>request.verb == "OPTIONS" AND request.header.origin != null AND request.header.Access-Control-Request-Method != null</Condition>
       </Flow>
+      <Flow name="AddHeaders">
+        <Request>
+          <Step>
+            <Name>AssignMessage.AddHeaders</Name>
+          </Step>
+        </Request>
+        <Response/>
+      </Flow>
     </Flows>
     <PreFlow name="PreFlow">
       <Request/>

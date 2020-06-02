@@ -213,6 +213,43 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "POST to dataset-id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5821a7cd-5b3b-486a-9117-19397319aa7b",
+						"exec": [
+							"pm.test(\"Status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "{{X-API-Key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/{{dataset-id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"{{dataset-id}}"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}

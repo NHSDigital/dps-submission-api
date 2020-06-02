@@ -5,6 +5,11 @@
       "key": "X-API-Key",
       "value": "dummy_apikey",
       "enabled": true
+    },
+    {
+      "key": "dataset-id",
+      "value": "covid19-research-tool",
+      "enabled": true
     }
   ],
   "name": "Tests globals values",

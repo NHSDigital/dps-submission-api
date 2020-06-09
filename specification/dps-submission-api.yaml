@@ -10,6 +10,18 @@ info:
     ## Overview
     Use this API to submit data to DPS.
 
+    ## Technology
+    This API is [RESTful](https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#basic-rest-apis). And is available via the Internet, and over the [Health and Social Care Network (HSCN)](https://digital.nhs.uk/services/health-and-social-care-network). It also conforms to the [FHIR](https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-apis#fhir) global standard for health care data exchange. Specifically, it is aligned with [FHIR UK Core](https://digital.nhs.uk/services/fhir-uk-core), which is built on FHIR Release 4.
+
+    ## Authorisation
+    This API is [Application-restricted](https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation#application-restricted-apis) which means the calling application is authenticated rather than the end user. This API requires an API key presented in the 'apiKey' header along with the request.
+
+    ## Sandbox Testing
+    You can try out the sandbox using our Postman collection:
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a31f8ef80a55c0226302)
+
+    For more details on sandbox testing, see [Sandbox Testing](https://digital.nhs.uk/developer/guides-and-documentation/testing#sandbox-testing).
+
     ## Endpoints
     To see details for specific endpoints, select from the list on the left hand side of the page:
     - `POST /dps-submission-api`
